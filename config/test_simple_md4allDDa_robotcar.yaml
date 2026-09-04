@@ -1,0 +1,26 @@
+EXPERIMENT_NAME: 'test-simple-md4allDDa-robotcar'
+
+LOAD:
+  CHECKPOINT_PATH: '/root/autodl-tmp/unsup_experiment/checkpoints/tex002_crop_unsup_resnet18_photo1_pso002_0213/train-md4allDDa-robotcar-epoch=02.ckpt'
+
+DATASET:
+  AUGMENTATION:
+    CROP:
+      HEIGHT: 768
+      WIDTH: 1280
+    RESIZE:
+      WIDTH: 544
+    NORMALIZE:
+      MODE: 'Image' # Use Image mode if daytime is not known a priori
+
+LOSS:
+  PHOTOMETRIC:
+    WEIGHT: 1.0
+  SMOOTHNESS_WEIGHT: 0.001
+  VELOCITY_WEIGHT: 0.02
+  SUPERVISED:
+    WEIGHT: 0.0
+  PSOSUPERVISED:
+    WEIGHT: 1.0
+  TEXTURE:
+    WEIGHT: 0.01
